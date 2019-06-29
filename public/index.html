@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" ng-app="insight" ng-csp>
+	<head>
+	<base href="/" />
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="fragment" content="!">
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="kienscoins, transactions, blocks, address, block chain, best block, mining difficulty, hash serialized">
+		<meta name="description" content="KIENS Insight. View detailed information on all quantum transactions and block. {{ $root.title + $root.titleDetail }}">
+		<link rel="stylesheet" type="text/css" href="css/style.min.css" />
+                <link rel="shortcut icon" href="images/favicon.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="images/favicon.png" type="image/png"/>
+		<!--[if IE ]><link rel="shortcut icon" href="/img/favicon.ico"  type="image/x-icon" /><![endif]-->
+		<title ng-bind="$root.title + $root.titleDetail + ' | Insight'">Insight</title>
+	</head>
+	<body ng-cloak class="ng-cloak">
+
+		<div class="wrapper wrapper-with-footer">
+			<header class="header fixed"
+					ng-include
+					src="'views/includes/header.html'"
+					role='navigation'
+					ng-controller="HeaderController as HC">
+					<img src="images/kienscoin_logo.png" alt="" class="logo logoPic-def"/>
+			</header>
+			<section class="content" ng-view ng-controller="CurrencyController as CC">
+			</section>
+		</div>
+		<footer class="footer">
+			<div class="box">
+				<div class="copy" translate>
+					2014-{{year}} KIENS {{version}} © All rights reserved
+				</div>
+			</div>
+		</footer>
+
+		<script data-cfasync="false">window.apiPrefix = '/api';</script>
+		<script data-cfasync="false">window.socketUrl = null;</script>
+		<script data-cfasync="false">window.current_network = null;</script>
+		<script data-cfasync="false">window.nodemapLink = '';</script>
+		<script data-cfasync="false" src="/socket.io/socket.io.js"></script>
+		<script data-cfasync="false" src="js/vendors.min.js"></script>
+		<script data-cfasync="false" src="js/angularjs-all.min.js"></script>
+		<script data-cfasync="false" src="js/main.min.js?v={{version}}"></script>
+	</body>
+</html>
